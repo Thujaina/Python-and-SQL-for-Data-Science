@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Aircraft {
+protected:
+    int fuel; // Fuel level in liters
+public:
+    // Function to set the fuel level
+    void setFuel(int f) {
+        fuel = f;
+    }
+
+    // Function to display the fuel level
+    void showFuel() {
+        cout << "Fuel level: " << fuel << " liters" << endl;
+    }
+};
+
+// Derived class 1
+class Airplane : public Aircraft {
+public:
+    // Function to calculate distance the airplane can travel
+    void calculateDistance() {
+        double distance = fuel / 12.0; // Assuming airplane consumes 12 liters per km
+        cout << "Airplane can travel: " << distance << " km" << endl;
+    }
+};
+
+// Derived class 2
+class Helicopter : public Aircraft {
+public:
+    // Function to calculate distance the helicopter can travel
+    void calculateDistance() {
+        double distance = fuel / 8.0; // Assuming helicopter consumes 8 liters per km
+        cout << "Helicopter can travel: " << distance << " km" << endl;
+    }
+};
+
+int main() {
+    Airplane myAirplane;
+    Helicopter myHelicopter;
+
+    // Set fuel level for airplane and helicopter
+    myAirplane.setFuel(120); // 120 liters of fuel for airplane
+    myHelicopter.setFuel(80); // 80 liters of fuel for helicopter
+
+    // Display fuel and calculate travel distance for airplane
+    cout << "Airplane details:" << endl;
+    myAirplane.showFuel();
+    myAirplane.calculateDistance();
+
+    // Display fuel and calculate travel distance for helicopter
+    cout << "\nHelicopter details:" << endl;
+    myHelicopter.showFuel();
+    myHelicopter.calculateDistance();
+
+    return 0;
+}
+
+//OUTPUT
+
+Airplane details:
+Fuel level: 120 liters
+Airplane can travel: 10 km
+
+Helicopter details:
+Fuel level: 80 liters
+Helicopter can travel: 10 km
